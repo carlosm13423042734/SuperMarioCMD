@@ -10,8 +10,6 @@ public class MarioMove : MonoBehaviour
     [SerializeField]
     private float velocity;
     [SerializeField]
-    private float aceleration;
-    [SerializeField]
     private LayerMask ground;
 
     public bool isGrounded = false;
@@ -32,20 +30,33 @@ public class MarioMove : MonoBehaviour
     {
         float direccionMovimiento = Input.GetAxisRaw("Horizontal");
         float posicionActualX = this.transform.position.x;
-        float nuevaPosicionX = direccionMovimiento * this.velocity * Time.deltaTime + posicionActualX;  
+        float nuevaPosicionX = direccionMovimiento * this.velocity * Time.deltaTime + posicionActualX;
         this.transform.position = new Vector2(nuevaPosicionX, this.transform.position.y);
     }
 
-    private void Salto() {
-        if (Input.GetButton("Jump")) { 
+    private void Salto()
+    {
+        if (Input.GetButton("Jump"))
+        {
             rig.AddForce(Vector2.up * jumpForce);
         }
     }
 
-    private bool checkGrounded() {
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, 0.6f, ground);
-        return hit.collider != null;
+    private bool checkGrounded()
+    {
+        float halfWidth = GetComponent<Collider2D>().bounds.extents.x;
+        float offsetY = 0.6f;
+
+        Vector2 leftRayOrigin = new Vector2(this.transform.position.x - (halfWidth - 0.15f), this.transform.position.y);
+        Vector2 rightRayOrigin = new Vector2(this.transform.position.x + (halfWidth - 0.15f), this.transform.position.y);
+
+        RaycastHit2D leftHit = Physics2D.Raycast(leftRayOrigin, Vector2.down, offsetY, ground);
+
+        RaycastHit2D rightHit = Physics2D.Raycast(rightRayOrigin, Vector2.down, offsetY, ground);
+
+        return leftHit.collider != null || rightHit.collider != null;
     }
+
 
     private void OnDrawGizmos()
     {
@@ -56,7 +67,8 @@ public class MarioMove : MonoBehaviour
     private void FixedUpdate()
     {
         this.isGrounded = checkGrounded();
-        if (this.isGrounded) { 
+        if (this.isGrounded)
+        {
             Salto();
         }
     }

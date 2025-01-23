@@ -11,8 +11,8 @@ TagManager:
   - Background
   - Water
   - UI
-  - Decoration
   - Player
+  - Decoration
   - 
   - 
   - 
@@ -41,12 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 3904787043
-    locked: 0
   - name: Scenary
     uniqueID: 3850033029
     locked: 0
   - name: Decoration
     uniqueID: 2745303893
+    locked: 0
+  - name: Player
+    uniqueID: 3904787043
     locked: 0
