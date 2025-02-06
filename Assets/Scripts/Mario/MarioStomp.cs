@@ -7,7 +7,7 @@ public class MarioStomp : MonoBehaviour
 {
 
     private MarioMove marioMove;
-
+   
     private void Awake()
     {
         this.marioMove = GetComponent<MarioMove>();
@@ -16,10 +16,10 @@ public class MarioStomp : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var enemyScript = collision.gameObject.GetComponent<IEnemy>();
-
+        
         if (enemyScript != null) { 
-            enemyScript.TakeDamage();
-            this.marioMove.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+            enemyScript.TakeDamage();         
+           
         }
     }
 }

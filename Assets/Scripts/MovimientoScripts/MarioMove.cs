@@ -15,6 +15,7 @@ public class MarioMove : MonoBehaviour
     public bool isGrounded = false;
 
     public Rigidbody2D rig;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
