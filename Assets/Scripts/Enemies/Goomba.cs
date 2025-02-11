@@ -22,8 +22,8 @@ public class Goomba : MonoBehaviour, IEnemy
 
     private IEnumerator StompedCoroutine()
     {
-        animator.SetTrigger("isDead"); 
-        collider.enabled = false;         
+        animator.SetTrigger("isDead");
+        this.gameObject.layer = LayerMask.NameToLayer("Dead");
         autoMoveScript.enabled = false; 
 
         yield return new WaitForSeconds(2f);

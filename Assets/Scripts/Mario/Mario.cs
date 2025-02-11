@@ -29,6 +29,7 @@ public class Mario : MonoBehaviour
 
         this.animator.SetFloat("VelocityX", Mathf.Abs(this.rigidbody2D.velocity.x));
         this.animator.SetFloat("VelocityY", Mathf.Abs(this.rigidbody2D.velocity.y));
+        this.animator.SetBool("IsGrounded", this.marioMoveScript.isGrounded);
 
     }
 

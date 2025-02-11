@@ -33,6 +33,9 @@ public class MarioMove : MonoBehaviour
         float posicionActualX = this.transform.position.x;
         float nuevaPosicionX = direccionMovimiento * this.velocity * Time.deltaTime + posicionActualX;
         this.transform.position = new Vector2(nuevaPosicionX, this.transform.position.y);
+        //var accelerationForce = new Vector2(this.direction * this.acceleration, 0);
+        //if ((this.direction != 0 && Math.Sign(this.direction) != Mathf.Sign(this.gameObject.velocity.x)) || this.)
+        //    accelerationForce = new Vector2(this.direction * this.deceleration, 0);
     }
 
     private void Salto()
