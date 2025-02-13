@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9c297794de40214b979648683ecc36e
+guid: 3f1ddf7a541ca7d4ebf64e48363dc499
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bloque_Interrogacion_0
+      name: Monedas_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 16
-        height: 16
+        x: 1
+        y: 2
+        width: 8
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b6a52b02de3e0244a8347b2386151c8
-      internalID: -1866785787
+      spriteID: e9a36ca78e984e04dbce7466e8b81e93
+      internalID: 295358324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bloque_Interrogacion_1
+      name: Monedas_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 16
-        height: 16
+        x: 13
+        y: 2
+        width: 4
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dfcaf2399d08ac439ac061edd2ae9da
-      internalID: -1931199383
+      spriteID: 6868e12a03f8bfd49b0dc5f5c55a8f2f
+      internalID: -489011982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bloque_Interrogacion_2
+      name: Monedas_2
       rect:
         serializedVersion: 2
-        x: 39
-        y: 0
-        width: 16
-        height: 16
+        x: 25
+        y: 2
+        width: 1
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 241da0e062efb534687de51a93a047b4
-      internalID: 1785668987
+      spriteID: 5581cafdceca3a744b5f58542dfd80f2
+      internalID: -755992474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bloque_Interrogacion_3
+      name: Monedas_3
       rect:
         serializedVersion: 2
-        x: 58
-        y: 0
-        width: 16
-        height: 16
+        x: 33
+        y: 2
+        width: 4
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8e975fbfd64d75498cbb7c754960922
-      internalID: -1044628892
+      spriteID: d20c06146f4e4554880bfd360b2fcfd4
+      internalID: 1336587215
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bloque_Interrogacion_0: -1866785787
-      Bloque_Interrogacion_1: -1931199383
-      Bloque_Interrogacion_2: 1785668987
-      Bloque_Interrogacion_3: -1044628892
+      Monedas_0: 295358324
+      Monedas_1: -489011982
+      Monedas_2: -755992474
+      Monedas_3: 1336587215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
