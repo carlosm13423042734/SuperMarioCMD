@@ -1,49 +1,71 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MarioMove : MonoBehaviour
 {
-    [SerializeField]
-    private float jumpForce;
-    [SerializeField]
-    private float velocity;
-    [SerializeField]
-    private LayerMask ground;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float deceleration;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private LayerMask ground;
 
-    public bool isGrounded = false;
-
-    public Rigidbody2D rig;
+    private Rigidbody2D rig;
+    public bool isGrounded;
+    private float velocity = 0f;
+    private float direction = 0f;
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        MovimientoPlayer();
+        direction = Input.GetAxisRaw("Horizontal");
+        this.isGrounded = checkGrounded();
+
+        
     }
 
-    private void MovimientoPlayer()
+    private void FixedUpdate()
     {
-        float direccionMovimiento = Input.GetAxisRaw("Horizontal");
-        float posicionActualX = this.transform.position.x;
-        float nuevaPosicionX = direccionMovimiento * this.velocity * Time.deltaTime + posicionActualX;
-        this.transform.position = new Vector2(nuevaPosicionX, this.transform.position.y);
-        //var accelerationForce = new Vector2(this.direction * this.acceleration, 0);
-        //if ((this.direction != 0 && Math.Sign(this.direction) != Mathf.Sign(this.gameObject.velocity.x)) || this.)
-        //    accelerationForce = new Vector2(this.direction * this.deceleration, 0);
-    }
+        MoveMario();
+        Salto();
 
+    }
     private void Salto()
     {
-        if (Input.GetButton("Jump"))
+        if (this.isGrounded)
         {
-            rig.AddForce(Vector2.up * jumpForce);
+            if (Input.GetButton("Jump"))
+            {
+                rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
         }
+    }
+    private void MoveMario()
+    {
+        if (direction != 0)
+        {
+
+            if (Mathf.Sign(direction) != Mathf.Sign(velocity) && Mathf.Abs(velocity) > 0.1f)
+            {
+                velocity = Mathf.MoveTowards(velocity, 0, deceleration * Time.fixedDeltaTime * 1.5f);
+            }
+            else
+            {
+                velocity = Mathf.MoveTowards(velocity, direction * maxSpeed, acceleration * Time.fixedDeltaTime);
+            }
+        }
+        else
+        {
+            velocity = Mathf.MoveTowards(velocity, 0, deceleration * Time.fixedDeltaTime);
+        }
+
+        rig.velocity = new Vector2(velocity, rig.velocity.y);
+
+        //
     }
 
     private bool checkGrounded()
@@ -67,16 +89,4 @@ public class MarioMove : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, Vector2.down * 0.6f);
     }
-
-    private void FixedUpdate()
-    {
-        this.isGrounded = checkGrounded();
-        if (this.isGrounded)
-        {
-            Salto();
-        }
-    }
 }
-
-
-

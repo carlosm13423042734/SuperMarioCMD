@@ -15,10 +15,11 @@ public class Block : BlockBase
 
         this.coins--;
         if (coins <= 0) {
-           
+            
             Instantiate(bloqueInvencible, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             
         }
     }
 }
+
