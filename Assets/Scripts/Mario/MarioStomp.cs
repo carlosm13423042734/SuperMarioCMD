@@ -18,7 +18,7 @@ public class MarioStomp : MonoBehaviour
         var enemyScript = collision.gameObject.GetComponent<IEnemy>();
         
         if (enemyScript != null) { 
-            enemyScript.TakeDamage();         
+            enemyScript.TakeDamage(collision);         
            
         }
     }
