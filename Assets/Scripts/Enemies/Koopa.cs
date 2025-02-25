@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 public class Koopa : MonoBehaviour, IEnemy
 {
@@ -48,24 +49,26 @@ public class Koopa : MonoBehaviour, IEnemy
 
     }
 
-    //public void TakeDamage(Collision2D collision)
-    //{
-    //    Debug.Log("Collision");
-    //    switch (this.status) { 
-    //        case KoopaStatus.Walk:
-    //            this.sleepCoroutine = StartCoroutine(Sleep()); 
-    //            break;
-    //        case KoopaStatus.Sleep:
-    //            this.Slide(collision);
-    //            break;
-    //        case KoopaStatus.Slide:
-    //            this.StopKoopa();
-    //            break;
+    public void TakeDamage(Collision2D collision)
+    {
+       
+        switch (this.status) { 
+            case KoopaStatus.Walk:
+               this.sleepCoroutine = StartCoroutine(Sleep()); 
+                break;
+            case KoopaStatus.Sleep:
+                this.Slide(collision);
+               break;
+           case KoopaStatus.Slide:
+              this.StopKoopa();
+               break;
 
 
-    //    }
-    //}
+       }
+   }
 
+
+   
     private void StopKoopa()
     {
         this.isDead = true;
@@ -78,8 +81,21 @@ public class Koopa : MonoBehaviour, IEnemy
        this.status = KoopaStatus.Slide;
         StopCoroutine(this.sleepCoroutine);
         var pointCollision = collision.GetContact(0).point;
-
+        var center = transform.position;
         float velocity;
+
+        if (pointCollision.x > center.x)
+        {
+            velocity = -5f;
+        }
+        else {
+            velocity = 5f;
+        }
+
+        this.autoMove.ChangeVelocity(velocity);
+        this.autoMove.enabled = true;
+
+        //StartCoroutine(this.DisabledDead());
     }
 }
 public enum KoopaStatus

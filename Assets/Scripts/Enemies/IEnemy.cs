@@ -9,7 +9,7 @@ namespace Assets.Scripts
 {
     internal interface IEnemy
     {
-        public void TakeDamage(Collider2D collider) { 
-        }
+        public void TakeDamage(Collision2D collision);
+        
     }
 }

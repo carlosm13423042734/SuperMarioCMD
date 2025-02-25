@@ -54,7 +54,7 @@ public class MarioMove : MonoBehaviour
                 velocity = Mathf.MoveTowards(velocity, 0, deceleration * Time.fixedDeltaTime * 1.5f);
             }
             else
-            {
+            {    
                 velocity = Mathf.MoveTowards(velocity, direction * maxSpeed, acceleration * Time.fixedDeltaTime);
             }
         }

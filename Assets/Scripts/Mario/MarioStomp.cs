@@ -7,18 +7,20 @@ public class MarioStomp : MonoBehaviour
 {
 
     private MarioMove marioMove;
-   
+    private KoopaStatus status;
     private void Awake()
     {
         this.marioMove = GetComponent<MarioMove>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        var enemyScript = collision.gameObject.GetComponent<IEnemy>();
+
+        var colision = new Collision2D();
+        var enemyScript = collider.gameObject.GetComponent<IEnemy>();
         
         if (enemyScript != null) { 
-            enemyScript.TakeDamage(collision);         
+            enemyScript.TakeDamage(colision);         
            
         }
     }

@@ -15,7 +15,7 @@ public class Goomba : MonoBehaviour, IEnemy
         autoMoveScript = GetComponent<AutoMove>();
     }
 
-    public void TakeDamage(Collider2D collider)
+    public void TakeDamage(Collision2D collision)
     {
         StartCoroutine(StompedCoroutine());
     }

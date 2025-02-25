@@ -10,6 +10,7 @@ public class Mario : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rigidbody2D;
     private MarioMove marioMoveScript;
+    private float direccion;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -19,22 +20,29 @@ public class Mario : MonoBehaviour
         this.marioMoveScript = GetComponent<MarioMove>();
     }
 
+    private void Update()
+    {
+        this.direccion = Input.GetAxisRaw("Horizontal");
+    }
     public void MoveTo(Vector3 position) { 
         this.transform.position = position;
     }
 
     private void LateUpdate()
     {
-        Flip();
+       
 
         this.animator.SetFloat("VelocityX", Mathf.Abs(this.rigidbody2D.velocity.x));
         this.animator.SetFloat("VelocityY", Mathf.Abs(this.rigidbody2D.velocity.y));
         this.animator.SetBool("IsGrounded", this.marioMoveScript.isGrounded);
 
+        if (Mathf.Sign(this.direccion) != Mathf.Sign(this.rigidbody2D.velocity.x)) {
+            this.animator.SetBool("Sliding", true);
+        }
+        else { 
+            this.animator.SetBool("Sliding", false);
+        }
     }
 
-    private void Flip()
-    {
-        
-    }
+    
 }

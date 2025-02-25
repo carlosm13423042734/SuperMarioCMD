@@ -20,4 +20,7 @@ public class AutoMove : MonoBehaviour
             direccion = direccion * -1;
         }
     }
+    public float ChangeVelocity(float velocity) {
+        return velocity += 2;
+    }
 }
