@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MarioStomp : MonoBehaviour
 {
+<<<<<<< HEAD
 
     private MarioMove marioMove;
     private KoopaStatus status;
@@ -12,6 +13,17 @@ public class MarioStomp : MonoBehaviour
     {
         this.marioMove = GetComponent<MarioMove>();
     }
+=======
+    private Rigidbody2D rigidbody2D;
+    private MarioMove marioMove;
+
+    private void Awake()
+{
+    this.rigidbody2D = GetComponentInParent<Rigidbody2D>(); 
+    this.marioMove = GetComponentInParent<MarioMove>(); 
+}
+
+>>>>>>> 1daa5d0 (Cambios finales)
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -21,7 +33,13 @@ public class MarioStomp : MonoBehaviour
         
         if (enemyScript != null) { 
             enemyScript.TakeDamage(colision);         
+<<<<<<< HEAD
            
+=======
+            GameManager.Instance.AddScore();
+            rigidbody2D.AddForce(Vector2.up * 5f, ForceMode2D.Impulse); 
+
+>>>>>>> 1daa5d0 (Cambios finales)
         }
     }
 }

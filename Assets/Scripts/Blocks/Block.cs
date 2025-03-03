@@ -12,7 +12,11 @@ public class Block : BlockBase
     public void Hit() { 
         base.Hit();
         Instantiate(coin,new Vector3(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
+<<<<<<< HEAD
 
+=======
+        GameManager.Instance.addCoins();
+>>>>>>> 1daa5d0 (Cambios finales)
         this.coins--;
         if (coins <= 0) {
             

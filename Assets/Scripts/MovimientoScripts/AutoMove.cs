@@ -15,7 +15,11 @@ public class AutoMove : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< HEAD
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+=======
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle") || (collision.gameObject.layer == LayerMask.NameToLayer("Enemies")))
+>>>>>>> 1daa5d0 (Cambios finales)
         {
             direccion = direccion * -1;
         }

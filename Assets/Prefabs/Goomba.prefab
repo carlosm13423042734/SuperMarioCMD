@@ -17,7 +17,11 @@ GameObject:
   - component: {fileID: 6925434701601170906}
   m_Layer: 9
   m_Name: Goomba
+<<<<<<< HEAD
   m_TagString: Untagged
+=======
+  m_TagString: Enemies
+>>>>>>> 1daa5d0 (Cambios finales)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

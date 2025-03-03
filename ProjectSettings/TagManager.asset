@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Enemies
+>>>>>>> 1daa5d0 (Cambios finales)
   layers:
   - Default
   - TransparentFX
@@ -16,8 +21,13 @@ TagManager:
   - Obstacle
   - Enemies
   - Dead
+<<<<<<< HEAD
   - 
   - 
+=======
+  - PowerUp
+  - Kill
+>>>>>>> 1daa5d0 (Cambios finales)
   - 
   - 
   - 
@@ -50,6 +60,12 @@ TagManager:
   - name: Enemies
     uniqueID: 2102203227
     locked: 0
+<<<<<<< HEAD
+=======
+  - name: PowerUp
+    uniqueID: 2055999487
+    locked: 0
+>>>>>>> 1daa5d0 (Cambios finales)
   - name: Player
     uniqueID: 3904787043
     locked: 0
